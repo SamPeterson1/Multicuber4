@@ -1,6 +1,15 @@
 package EngineTester;
 
-import Lib.*;
+import GUI.SolverCanvas;
+import GUI.SolverEvent;
+import GUI.SolverEventQueue;
+import GUI.SolverFrame;
+import Lib.Algorithm;
+import Lib.Cube;
+import Lib.FaceUtils;
+import Lib.Map;
+import Solvers.CenterSolver;
+import Utils.Commutator;
 
 public class Main {
 	
@@ -16,6 +25,7 @@ public class Main {
 		Map m = new Map();
 		Cube cube = new Cube();
 		Algorithm a = Commutator.getCommutator(2,2, 2, 0);
+		CenterSolver c = new CenterSolver();
 		a.print();
 		cube.excecuteAlg(a); 
 		while(true) {
@@ -26,6 +36,7 @@ public class Main {
 				if(event.getType() == SolverEvent.EVENT_MOUSE_BUTTON_PRESS & event.isMouseLeftButton()) {
 						int x = event.getMouseX();
 						int y = event.getMouseY();
+						c.solveCenter(0, cube);
 						if(inBounds(x,y, 500, 0, 300, 300)) {
 							m.applyMap(cube, true, Map.TOPFACE, layer);
 						}

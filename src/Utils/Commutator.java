@@ -1,6 +1,7 @@
-package Lib;
+package Utils;
 
-import Utils.MatrixUtils;
+import Lib.Algorithm;
+import Lib.Move;
 
 public class Commutator {
 	

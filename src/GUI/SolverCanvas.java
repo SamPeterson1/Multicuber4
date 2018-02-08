@@ -1,4 +1,4 @@
-package EngineTester;
+package GUI;
 
 import java.awt.Canvas;
 import java.awt.Color;
