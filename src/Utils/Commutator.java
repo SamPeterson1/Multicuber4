@@ -19,7 +19,6 @@ public class Commutator {
 	
 		
 		if(horizontal.equals("true")) {
-			System.out.println("HORIZONYGREHRT");
 			x = new Integer(y.intValue());
 			y = new Integer(x.intValue());
 		}
@@ -35,7 +34,6 @@ public class Commutator {
 		if(!((x >= 2 & y >= 2) || (y <= 1 & x <= 1))) {
 			offseter = invertedOffseter;
 			invertedOffseter = i;
-			System.out.println("HIIihifgohiofiudf");
 		}
 		
 		moveBuffer.append(displacer)
@@ -47,7 +45,6 @@ public class Commutator {
 		retVal.addMove(new Move(offseter + "w0"));
 		
 		util.setNumber(y, x, 1);
-		util.print();
 		util.setEvalMatrix(MatrixUtils.rotateCW(util.getEvalMatrix()));
 		moveBuffer = new StringBuilder("");
 		
@@ -57,10 +54,7 @@ public class Commutator {
 		.append("w")
 		.append(x.toString());
 		displace2 = new Move(moveBuffer.toString());
-		
-		System.out.println(x.toString() + "GDFG");
-		util.print();
-		System.out.println(displace.getName());
+
 		displace = Move.invert(displace);
 		retVal.addMove(new Move(moveBuffer.toString()));
 		
@@ -81,7 +75,6 @@ public class Commutator {
 				offseter = commutatorConfigs[i][3];
 				invertedOffseter = commutatorConfigs[i][4];
 				horizontal = commutatorConfigs[i][5];
-				System.out.println(displacer);
 			}
 		}
 	}

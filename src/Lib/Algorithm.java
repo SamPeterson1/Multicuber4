@@ -24,10 +24,4 @@ public class Algorithm {
 	public ArrayList<Move> getMoves() {
 		return (ArrayList<Move>) moves.clone();
 	}
-	public void print() {
-		for(Move m: moves) {
-			System.out.print(m.getName() + " ");
-		}
-		System.out.println("");
-	}
 }

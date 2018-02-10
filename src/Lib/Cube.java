@@ -57,6 +57,10 @@ public class Cube {
 			}
 		}
 	}
+	
+	public Cube(int[][][] data) {
+		this.data = data;
+	}
 
 	public int[][] Map2D(int layer) {
 		//new Map().applyMap(this, true, layer);
@@ -69,12 +73,13 @@ public class Cube {
 	
 	public void excecuteAlg(Algorithm a) {
 		ArrayList<Move> moves = a.getMoves();
-		System.out.println(moves.size() + "algorithm size");
-		a.print();
 		for(Move m: moves) {
-			System.out.println(m.getName() + "hf");
 			this.executeMove(m.getValue(), m.getLayer());
 		}
+	}
+	
+	public Cube clone() {
+		return new Cube(this.getCubeClone());
 	}
 	
 	public void executeMove(int value, int layer) {
@@ -107,6 +112,19 @@ public class Cube {
 				m.applyMap(this, clockwise, Map.BOTTOMFACE, layer);
 			} 
 		}
+	}
+	
+	public int[][][] getCubeClone(){
+		int[][][] retVal = new int[6][4][4];
+		for(int i = 0; i < 6; i ++) {
+			for(int j = 0; j < 4; j ++) {
+				for(int k = 0; k < 4; k ++) {
+					retVal[i][j][k] = this.data[i][j][k];
+				}
+			}
+		}
+		
+		return retVal;
 	}
 
 	public int[][] rotateCW(int[][] mat, int iterations) {

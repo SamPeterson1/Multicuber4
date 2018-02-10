@@ -31,7 +31,6 @@ public class Move {
 			}
 			newName += firstComponent;
 			newName += secondComponent;
-			System.out.println(newName + "ghiuedfhgiuehi");
 			Move m2 = new Move(newName);
 			m = m2;
 			return m2;
@@ -63,7 +62,6 @@ public class Move {
 			name += "w0";
 		}
 		String[] components = this.name.split("w");
-		System.out.println(components.length + " " + this.name);
 		retVal[1] = Integer.parseInt(components[1]);
 		switch(components[0]) {
 			case "R":

@@ -16,9 +16,6 @@ public class FaceUtils {
 				centers.add(new Center((i-2)*(cubeSize-2)+(j-2), tempData[i][j]));
 			}
 		}
-		for(Center c1: centers) {
-			System.out.printf("Position: %d, Color: %d\n", c1.getPosition(), c1.getColor());
-		}
 		for(int i = 0; i < 4; i ++) {
 			edgesTop[0][i] = tempData[0][i];
 		}

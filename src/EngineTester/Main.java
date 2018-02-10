@@ -24,19 +24,15 @@ public class Main {
 		int layer = 1;
 		Map m = new Map();
 		Cube cube = new Cube();
-		Algorithm a = Commutator.getCommutator(2,2, 2, 0);
-		CenterSolver c = new CenterSolver();
-		a.print();
-		cube.excecuteAlg(a); 
+		CenterSolver c = new CenterSolver(); 
 		while(true) {
-			canvas.updateCubeData(cube.getCube());			
+			canvas.updateCubeData(cube.getCube());	
 			if(queue.isEventToProcess()) {
 				event = queue.getEvent();
 				
 				if(event.getType() == SolverEvent.EVENT_MOUSE_BUTTON_PRESS & event.isMouseLeftButton()) {
 						int x = event.getMouseX();
 						int y = event.getMouseY();
-						c.solveCenter(0, cube);
 						if(inBounds(x,y, 500, 0, 300, 300)) {
 							m.applyMap(cube, true, Map.TOPFACE, layer);
 						}
@@ -110,6 +106,7 @@ public class Main {
 					layer = cycle(layer, 3);
 					System.out.println(layer);
 					new FaceUtils(cube, Map.BACKFACE);
+					c.solveCenter(0, cube);
 				}
 			}
 			canvas.draw();

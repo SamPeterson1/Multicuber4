@@ -27,15 +27,6 @@ public class MatrixUtils {
 		evalMatrix[y][x] = num;
 	}
 	
-	public void print() {
-		for(int i = 0; i < this.size; i ++) {
-			System.out.println();
-			for(int j = 0; j < this.size; j ++) {
-				System.out.print(evalMatrix[i][j]);
-			}
-		}
-		System.out.println();
-	}
 	
 	public int[] getNumLocation(int num) {
 		int[] retVal = {-1,-1};

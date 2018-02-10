@@ -14,7 +14,6 @@ public class Edge {
 		if(colors[0] == this.colors[0] & colors[1] == this.colors[1] || colors[0] == this.colors[1] & colors[1] == this.colors[0]) {
 			return true;
 		}
-		System.out.println(this.colors[0] + " " + this.colors[1]);
 		return false;
 	}
 	

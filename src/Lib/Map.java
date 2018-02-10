@@ -19,18 +19,15 @@ public class Map {
 	public static final int[][] BOTTOMFACE = {{3,0},{3,0},{3,0},{3,0},{3,3},{3,3},{3,3},{3,3},{1,2,3,4},{-1,-1,-1,-1},{FaceFolder.X,FaceFolder.X,FaceFolder.X,FaceFolder.X},{0,5,0}};
 	
 	public void applyMap(Cube c, Boolean clockwise, int[][] map, int layer) {
-		System.out.println(clockwise + " " + wrongWay);
 		this.parseMap(map);
 		if(wrongWay) {
 			clockwise = !clockwise;
 		}
 		int direction = 1;
-		System.out.println(clockwise + " " + wrongWay);
 		if(!clockwise) {
 			direction = 3;
 		}
 		for(int i = 0; i < direction; i ++) {
-			System.out.println(layer);
 			int[][] flatFace = FaceFolder.fold(c, face, axis, unfoldMap1, unfoldMap2, faces, layerIncrease, layer);
 			flatFace = c.rotateCW(flatFace, 1);
 			FaceFolder.unfold(c, face, axis, unfoldMap1, unfoldMap2, faces, flatFace, layerIncrease, layer);

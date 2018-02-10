@@ -6,7 +6,18 @@ import Lib.Cube;
 
 public class CenterGroup {
 	int[][] group = new int[2][2];
+	Cube c;
+	int side;
 	
+	public void print() {	
+		for(int i = 0; i < 2; i ++) {
+			for(int j = 0; j < 2; j ++) {
+				System.out.print(group[i][j]);
+			}
+			System.out.println(" ");
+		}
+		System.out.println(" ");
+	}
 	public int[][] getGroup() {
 		int[][] retVal = new int[2][2];
 		for(int i = 0; i < group.length; i ++) {
@@ -14,6 +25,7 @@ public class CenterGroup {
 		}
 		return retVal;
 	}
+	
 	
 	public int getColorAt(int x, int y) {
 		return this.getGroup()[y][x];
@@ -38,6 +50,8 @@ public class CenterGroup {
 		}
 	}
 	
+	
+	
 	public int getColorCt(int color) {
 		int retVal = 0;
 		for(int i = 0; i < group.length; i ++) {
@@ -51,6 +65,17 @@ public class CenterGroup {
 	}
 	
 	public CenterGroup(int side, Cube c) {
+		int[][] face = c.getCube()[side];
+		for(int i = 1; i < face.length - 1; i ++) {
+			for(int j = 1; j < face.length - 1; j ++) {
+				group[i-1][j-1] = face[i][j];
+			}
+		}
+		this.c = c;
+		this.side = side;
+	}
+	
+	public void update() {
 		int[][] face = c.getCube()[side];
 		for(int i = 1; i < face.length - 1; i ++) {
 			for(int j = 1; j < face.length - 1; j ++) {
